@@ -1,0 +1,123 @@
+ <link rel="stylesheet" type="text/css" href="accommodation/accstyle.css">
+ <script type='text/javascript' src='accommodation/filereader.js'></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+ 
+ <nav class="navbar navbar-inverse" role="navigation"> 
+      <ul class="nav navbar-nav">
+          <li><a>WELCOME {{USER.username}}</a></li>
+          <li><a ui-sref="accommodation">Add accommodation</a></li>
+          	<li><a ui-sref="accommodationUnits">Accommodation units</a></li>
+      	  			    
+		    <li class="dropdown">
+        		<a class="dropdown-toggle" data-toggle="dropdown">Messages<span class="caret"></span></a>
+       			<ul class="dropdown-menu">
+	          		<li><a ui-sref="receivedMessages">Received Messages</a></li>
+	          		<li><a ui-sref="sentMessages">Sent Messages</a></li>
+        		</ul>
+      		</li>
+      		
+      		<li><a ui-sref="reservation">Reservations</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">        
+	      <li><a ui-sref="signout">SignOut</a></li>
+      </ul>
+ </nav>
+ 
+ <form name="addAccommodationForm" class="addAccForm">
+ 
+	<br>
+ 	<h3>Add new accommodation</h3>
+ 	
+ 	<br>
+ 	<label>Country: </label>
+ 	<input type="text" ng-model="accommodation.location.country" required="required" autofocus="autofocus">
+ 	
+ 	<label>City: </label>
+ 	<input type="text" ng-model="accommodation.location.city" required="required">
+ 
+ 	<label>Adress: </label>
+ 	<input type="text" ng-model="accommodation.location.adress" required="required">
+ 	
+ 	<label>Title: </label>
+ 	<input type="text" ng-model="accommodation.title" required="required">
+ 	
+ 	<label>Category type: </label>
+ 	
+ 	<select id="soflow" ng-model="accommodation.category.type"
+	ng-options="categoryType.type for categoryType in categoryTypes">
+	<option class="placeholder" selected disabled value="" required>Choose
+		category type</option>
+	</select>
+
+	<label>Accommodation type: </label>
+	<select id="soflow" ng-model="accommodation.type.type"
+		ng-options="accommodationType.type for accommodationType in accommodationTypes">
+	
+		<option class="placeholder" selected disabled value="" required>Choose
+			accommodation type</option>
+	</select>
+
+ 	<label>Description: </label>
+ 	<input type="text" ng-model="accommodation.description" required="required" id="descInput">
+
+ 	<label>Image(s): </label>
+		
+	<input type="file"  id="trigger" multiple required onchange="angular.element(this).scope().setFile(this)" accept="image/*"> 
+
+ <!-- 	<input id="file-input" type="file" multiple> -->	
+ 	
+ 
+ 	<label>Number of persons: </label>
+ 	<input type="number" ng-model="accommodation.numberOfPerson" required="required">
+ 	
+ 	<label>Additional services: </label>
+ 	
+ 	<div id="addServ">
+	 	<span ng-repeat="addition in additionalServices" ng-model="accommodation.additionalServices.service"> 
+	 		<label class="checkbox-inline" style="width:200px;">
+	 			<input type="checkbox" required  value="{{addition.id}}" />{{addition.service}}
+			</label>
+		</span>
+	</div>
+
+ 	<label>Start date: </label>
+ 	<input type="date" ng-model="accommodation.prices.startDate" required="required">
+
+ 	<label>End date: </label>
+ 	<input type="date" ng-model="accommodation.prices.endDate" required="required">
+
+ 	<label>Price: </label>
+ 	<input type="number" ng-model="accommodation.prices.price" required="required">
+ 	
+ 	<label>Rating: </label>
+ 	<select ng-model="accommodation.ratingSum">
+		<option ng-repeat="x in rating">{{x}}</option>
+	</select>
+	
+ 	<button class="butt" ng-click="addAccommodationForm.$valid && createAccommodation()">Add accommodation</button>
+ 	
+ </form>
+
+ <div id="preview" >
+	
+		<h4>Accommodation images</h4>
+		<hr><br>
+			
+	<img ng-src="{{image_source}}">
+		
+	</div>
+	
+	
+	
+<!--	
+	<div id="preview">
+		<h4>Accommodation images</h4>
+		<hr><br>
+	</div>
+	
+	<script>
+	document.querySelector('#file-input').addEventListener("change", previewImages, false);
+	</script>
+	
+ -->
+
