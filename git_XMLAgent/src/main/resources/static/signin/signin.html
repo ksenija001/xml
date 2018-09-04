@@ -1,0 +1,20 @@
+ <nav class="navbar navbar-inverse" role="navigation"> 
+      <ul class="nav navbar-nav">
+           <li><a>WELCOME TO BOOKING</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">        
+	      <li><a ui-sref="signin">SignIn</a></li>
+      </ul>
+ </nav>
+<div>
+	<form name="signinForm">			
+		<h2>SignIn</h2>
+		<br><Label>E-mail</Label><br>
+		<input type="email" required ng-model="user.email">
+	
+		<br><Label>Lozinka</Label><br>
+		<input type="password" required ng-model="user.password">
+	
+		<button class="butt"  ng-click="signinForm.$valid && signin()">Logovanje</button>
+	</form>
+</div>

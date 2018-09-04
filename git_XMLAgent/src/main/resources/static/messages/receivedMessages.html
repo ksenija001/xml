@@ -1,0 +1,39 @@
+ <nav class="navbar navbar-inverse" role="navigation"> 
+      <ul class="nav navbar-nav">
+           <li><a>WELCOME {{USER.username}}</a></li>
+           
+            
+            <li><a ui-sref="accommodation">Add accommodation</a></li>
+          	<li><a ui-sref="accommodationUnits">Accommodation units</a></li>
+      	  			    
+		    <li class="dropdown">
+        		<a class="dropdown-toggle" data-toggle="dropdown">Messages<span class="caret"></span></a>
+       			<ul class="dropdown-menu">
+	          		<li><a ui-sref="receivedMessages">Received Messages</a></li>
+	          		<li><a ui-sref="sentMessages">Sent Messages</a></li>
+        		</ul>
+      		</li>
+      		
+      		<li><a ui-sref="reservation">Reservations</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">         
+          <li><a ui-sref="signout">SignOut</a></li>
+          
+      </ul>
+ </nav>
+ 
+  <div ng-repeat="message in receivedMessages">
+            <div class="alert-message alert-message-success">
+                <h4>Received message by {{message.sender.username}}</h4>
+                <p>{{message.content}}</p>
+                <button ng-click="respond(message)">Respond</button>
+            </div>
+ </div>
+ 
+ <hr>
+<form ng-hide="write==false" name=sendMessageForm>
+	<h4>Respond to {{toWrite}}</h4>
+	<Label>Content: </Label>
+	<input class="input-css" type="text" value="" ng-model="messageContent">
+	<button class="button" ng-click="sendMess(messageContent)">Send Message</button>
+</form>
