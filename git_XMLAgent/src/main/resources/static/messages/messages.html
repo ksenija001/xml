@@ -1,0 +1,22 @@
+ <nav class="navbar navbar-inverse" role="navigation"> 
+      <ul class="nav navbar-nav">
+           <li><a>WELCOME {{USER.username}}</a></li>
+           
+            <li><a ui-sref="accommodation">Add accommodation</a></li>
+          	<li><a ui-sref="accommodationUnits">Accommodation units</a></li>
+      	  			    
+		    <li class="dropdown">
+        		<a class="dropdown-toggle" data-toggle="dropdown">Messages<span class="caret"></span></a>
+       			<ul class="dropdown-menu">
+	          		<li><a ui-sref="receivedMessages">Received Messages</a></li>
+	          		<li><a ui-sref="sentMessages">Sent Messages</a></li>
+        		</ul>
+      		</li>
+      		
+      		<li><a ui-sref="reservation">Reservations</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">         
+          <li><a ui-sref="signout">SignOut</a></li>
+          
+      </ul>
+ </nav>

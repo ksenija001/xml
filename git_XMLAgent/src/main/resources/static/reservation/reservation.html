@@ -1,0 +1,42 @@
+ <nav class="navbar navbar-inverse" role="navigation"> 
+      <ul class="nav navbar-nav">
+          <li><a>WELCOME {{USER.username}}</a></li>
+          <li><a ui-sref="accommodation">Add accommodation</a></li>
+          	<li><a ui-sref="accommodationUnits">Accommodation units</a></li>
+      	  			    
+		    <li class="dropdown">
+        		<a class="dropdown-toggle" data-toggle="dropdown">Messages<span class="caret"></span></a>
+       			<ul class="dropdown-menu">
+	          		<li><a ui-sref="receivedMessages">Received Messages</a></li>
+	          		<li><a ui-sref="sentMessages">Sent Messages</a></li>
+        		</ul>
+      		</li>
+      		
+      		<li><a ui-sref="reservation">Reservations</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">        
+	      <li><a ui-sref="signout">SignOut</a></li>
+      </ul>
+ </nav>
+ 
+ <table id="accommodations" border="1">
+	<tr>
+		<th>Title</th>
+		<th>Category</th>
+		<th>Number of person</th>
+		<th>Start date</th>
+		<th>End date</th>
+		<th>Bill</th>
+		<th></th>
+
+	</tr>
+	<tr ng-repeat="reservation in reservations" ng-if="reservation.confirmed==false">
+	    <td>{{reservation.accommodation.title}}</td>
+	    <td>{{reservation.accommodation.category.type}}</td>
+	    <td>{{reservation.accommodation.numberOfPerson}}</td>
+	  	<td>{{date(reservation.startDate)}}</td>
+	  	<td>{{date(reservation.endDate)}}</td>
+	    <td>{{reservation.bill }}</td>
+	    <td align="center"><button ng-click="confirmReservation(agentUsername,reservation.id)">Confirm reservation</button></td>
+  	</tr>
+</table>
