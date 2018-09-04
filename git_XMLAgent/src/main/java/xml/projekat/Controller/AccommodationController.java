@@ -99,48 +99,7 @@ public class AccommodationController {
 	
 		
 		
-		
-		/*
-		ObjectMapper mapper = new ObjectMapper();
-		mapper.configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS, false);
-		Gson gson = new GsonBuilder().setPrettyPrinting().create();
-		JsonParser jp = new JsonParser();
-		JsonElement je = jp.parse(mapper.writeValueAsString(accommodation));
-
-		
-		ArrayList<Accommodation> units = new ArrayList<>();
-		
-		for(Accommodation a : accommodationService.findAll()){
-			if(a.getOwner()!=null){
-				if(a.getOwner().getUsername().equals(accommodation.getOwner().getUsername())){
-					System.out.println(a.getId());
-					units.add(a);
-					
-				}
-			}
-		}
-		
-	//	File fi;
-		//byte[] fileContent;
-		//for(String s : accommodation.getSlike()){
-			//System.out.println("Slika: " + s);
-			//String path = s.replaceAll("http://localhost:9030/files", "upload-dir");
-			//fi = new File(path);
-			//fileContent = Files.readAllBytes(fi.toPath());
-			//PictureItem pi = new PictureItem();
-			//pi.setItem(fileContent);
-			//accommodation.getPictureItems().add(pi);
-		//}
-		
-		
-		ObjectMapper mapper2 = new ObjectMapper();
-		   	   
-	    String u = mapper2.writeValueAsString(units);
-	    //System.out.println("After creating, " + unit.getAgent().getUsername()+"'s units:");
-	    //System.out.println(u);
-	    return u;
-		
-		*/
+	
 		
 		
 	}
